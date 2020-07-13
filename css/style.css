@@ -1,0 +1,87 @@
+:root {
+	--off-black-color: #3b3a3a;
+	--off-white-color: #f2f2f2;
+	--link-blue-color: #4e7ecc;
+	--off-purple-color: #40485d;
+}
+
+@font-face {
+	font-family: Avenir;
+	src: url("/css/AvenirLTStd-Book.otf");
+}
+
+body {
+	font-family : Avenir;
+}
+#bug-title{
+	font-size: 16px;
+	font-family : Avenir;
+	margin-left:15px;
+}
+.textarea-input{
+	font-size: 14px;
+	font-family : Avenir;
+	width:100%;
+}
+.bug-description-container{
+	padding-left:15px;
+	padding-right:15px;
+}
+
+/* setup tooltips */
+
+
+.tooltip {
+	position: relative;
+		cursor: pointer; 
+	display: inline-block; 
+	padding: 0 10px;
+}
+.tooltip:before,
+.tooltip:after {
+	display: block;
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+}
+
+.tooltip:after {
+	border-right: 6px solid transparent;
+	border-top: 6px solid rgba(0,0,0,.8); 
+	border-left: 6px solid transparent;
+	content: '';
+	height: 0;
+		bottom: 26px;
+		left: 17px;
+	width: 0;
+}
+.tooltip:before {
+	background: rgba(0,0,0,.8);
+	border-radius: 2px;
+	color: #fff;
+	content: attr(data-title);
+	font-size: 16px;
+	font-family : Avenir;
+	padding: 6px 10px;
+		bottom: 32px;
+	white-space: nowrap;
+}
+
+/* expand */
+.tooltip.expand:before {
+	transform: scale3d(.2,.2,1);
+	transition: all .2s ease-in-out;
+}
+.tooltip.expand:after {
+	transform: scaleY(0);
+	transform-origin: 100% 0%;
+	transition: all .01s ease-in-out;
+}
+.tooltip.expand:hover:before,
+.tooltip.expand:hover:after {
+	opacity: 1;
+	transform: scale3d(1,1,1);
+}
+.tooltip.expand:hover:after {
+	transition: all .2s .1s ease-in-out;
+}
